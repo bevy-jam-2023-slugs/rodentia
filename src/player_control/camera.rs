@@ -41,8 +41,8 @@ impl Default for IngameCamera {
 #[reflect(Serialize, Deserialize)]
 pub(crate) enum IngameCameraKind {
     #[default]
-    ThirdPerson,
     FirstPerson,
+    ThirdPerson,
     FixedAngle,
 }
 
