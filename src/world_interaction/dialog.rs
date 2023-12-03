@@ -108,8 +108,8 @@ fn show_dialog(
     config: Res<GameConfig>,
 ) -> Result<()> {
     let Some(mut current_dialog) = current_dialog else {
-            *elapsed_time = 0.0;
-            return Ok(());
+        *elapsed_time = 0.0;
+        return Ok(());
     };
 
     for actions in actions.iter() {

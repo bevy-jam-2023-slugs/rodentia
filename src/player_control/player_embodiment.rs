@@ -153,7 +153,7 @@ fn rotate_to_speaker(
     #[cfg(feature = "tracing")]
     let _span = info_span!("rotate_to_speaker").entered();
     let Ok(speaker_transform) = without_player.get(current_dialog.source) else {
-         return;
+        return;
     };
     let dt = time.delta_seconds();
 

@@ -78,7 +78,9 @@ fn set_look_at(rig: &mut Rig, camera: &IngameCamera) {
 }
 
 fn set_position(rig: &mut Rig, camera: &IngameCamera) {
-    let target = if camera.kind != IngameCameraKind::FirstPerson && let Some(secondary_target) = camera.secondary_target {
+    let target = if camera.kind != IngameCameraKind::FirstPerson
+        && let Some(secondary_target) = camera.secondary_target
+    {
         secondary_target.translation
     } else {
         camera.target.translation
