@@ -1,7 +1,9 @@
 use crate::player_control::camera::kind::update_drivers;
 use crate::player_control::camera::{
-    cursor::grab_cursor, focus::set_camera_focus, kind::update_kind, rig::update_rig,
-    skydome::move_skydome,
+    cursor::grab_cursor,
+    focus::set_camera_focus,
+    /*kind::update_kind*/ rig::update_rig,
+    // skydome::move_skydome,
 };
 use crate::GameState;
 use bevy::prelude::*;
@@ -60,11 +62,11 @@ pub(crate) fn camera_plugin(app: &mut App) {
         .add_system(grab_cursor.in_set(OnUpdate(GameState::Playing)))
         .add_systems(
             (
-                update_kind,
+                // update_kind,
                 update_drivers,
                 set_camera_focus,
                 update_rig,
-                move_skydome,
+                // move_skydome,
             )
                 .chain()
                 .in_set(CameraUpdateSystemSet)

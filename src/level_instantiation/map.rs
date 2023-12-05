@@ -23,14 +23,14 @@ pub(crate) fn map_plugin(app: &mut App) {
 }
 
 fn setup(
-    mut commands: Commands,
+    // mut commands: Commands,
     mut loader: EventWriter<WorldLoadRequest>,
     mut delayed_spawner: EventWriter<SpawnEvent<GameObject, Transform>>,
 ) {
-    commands.insert_resource(AmbientLight {
-        color: Color::WHITE,
-        brightness: 0.3,
-    });
+    // commands.insert_resource(AmbientLight {
+    //     color: Color::WHITE,
+    //     brightness: 0.3,
+    // });
 
     loader.send(WorldLoadRequest {
         filename: "old_town".to_string(),

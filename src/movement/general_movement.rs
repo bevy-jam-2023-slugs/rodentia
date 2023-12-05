@@ -36,7 +36,9 @@ pub(crate) use components::*;
 /// Note: you might notice that the normal force is not included in the above diagram. This is because rapier emulates it by moving penetrating colliders out of each other.
 pub(crate) fn general_movement_plugin(app: &mut App) {
     app.register_type::<Grounded>()
+        .register_type::<Exhausted>()
         .register_type::<Jumping>()
+        .register_type::<Sprinting>()
         .register_type::<Velocity>()
         .register_type::<Walking>()
         .register_type::<CharacterAnimations>()

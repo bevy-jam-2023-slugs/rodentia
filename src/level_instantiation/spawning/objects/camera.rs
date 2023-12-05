@@ -1,6 +1,7 @@
 use crate::level_instantiation::spawning::GameObject;
 use crate::player_control::actions::create_camera_action_input_manager_bundle;
 use crate::player_control::camera::IngameCamera;
+use bevy::core_pipeline::clear_color::ClearColorConfig;
 use bevy::prelude::*;
 use bevy_dolly::prelude::*;
 #[cfg(feature = "dev")]
@@ -10,6 +11,10 @@ pub(crate) fn spawn(In(transform): In<Transform>, mut commands: Commands) {
     commands.spawn((
         IngameCamera::default(),
         Camera3dBundle {
+            camera_3d: Camera3d {
+                clear_color: ClearColorConfig::Custom(Color::rgb(0.0, 0.0, 0.0)),
+                ..default()
+            },
             transform,
             ..default()
         },

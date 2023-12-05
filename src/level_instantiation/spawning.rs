@@ -25,14 +25,14 @@ pub(crate) fn spawning_plugin(app: &mut App) {
             (GameObject::Triangle, objects::primitives::spawn_triangle),
             (GameObject::Sphere, objects::primitives::spawn_sphere),
             (GameObject::Capsule, objects::primitives::spawn_capsule),
-            (GameObject::Sunlight, objects::sunlight::spawn),
-            (GameObject::PointLight, objects::point_light::spawn),
+            // (GameObject::Sunlight, objects::sunlight::spawn),
+            // (GameObject::PointLight, objects::point_light::spawn),
             (GameObject::Npc, objects::npc::spawn),
             (GameObject::Player, objects::player::spawn),
             (GameObject::Level, objects::level::spawn),
             (GameObject::Orb, objects::orb::spawn),
             (GameObject::Camera, objects::camera::spawn),
-            (GameObject::Skydome, objects::skydome::spawn),
+            // (GameObject::Skydome, objects::skydome::spawn),
         ))
         .add_systems((despawn, link_animations).in_set(OnUpdate(GameState::Playing)))
         .add_systems(

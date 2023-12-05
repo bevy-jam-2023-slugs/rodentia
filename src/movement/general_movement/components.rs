@@ -1,4 +1,7 @@
+use std::time::Duration;
+
 use bevy::prelude::*;
+use bevy::time::Timer;
 use bevy_rapier3d::prelude::*;
 use serde::{Deserialize, Serialize};
 
@@ -9,6 +12,7 @@ pub(crate) struct CharacterControllerBundle {
     pub(crate) read_mass: ReadMassProperties,
     pub(crate) walking: Walking,
     pub(crate) jumping: Jumping,
+    pub(crate) sprinting: Sprinting,
     pub(crate) grounded: Grounded,
     pub(crate) damping: Damping,
     pub(crate) rigid_body: RigidBody,
@@ -18,6 +22,7 @@ pub(crate) struct CharacterControllerBundle {
     pub(crate) impulse: ExternalImpulse,
     pub(crate) velocity: Velocity,
     pub(crate) dominance: Dominance,
+    pub(crate) stamina: Stamina,
 }
 
 impl Default for CharacterControllerBundle {
@@ -26,10 +31,12 @@ impl Default for CharacterControllerBundle {
             read_mass: default(),
             gravity_scale: GravityScale(1.0),
             force: default(),
-            mass: ColliderMassProperties::Mass(3.0),
+            mass: ColliderMassProperties::Mass(8.0),
             walking: default(),
             jumping: default(),
+            sprinting: default(),
             grounded: default(),
+            stamina: default(),
             damping: Damping {
                 linear_damping: 1.5,
                 ..default()
@@ -85,6 +92,8 @@ impl Walking {
             } else {
                 self.ground_acceleration
             }
+        } else if self.sprinting {
+            self.aerial_acceleration * 1.5
         } else {
             self.aerial_acceleration
         };
@@ -110,6 +119,10 @@ impl Default for Walking {
 #[reflect(Component, Serialize, Deserialize)]
 pub(crate) struct Grounded(pub(crate) bool);
 
+#[derive(Debug, Clone, PartialEq, Component, Reflect, Default, Serialize, Deserialize)]
+#[reflect(Component, Serialize, Deserialize)]
+pub(crate) struct Exhausted(pub(crate) bool);
+
 #[derive(Debug, Clone, PartialEq, Component, Reflect, Serialize, Deserialize)]
 #[reflect(Component, Serialize, Deserialize)]
 pub(crate) struct Jumping {
@@ -124,6 +137,50 @@ impl Default for Jumping {
         Self {
             speed: 3.5,
             requested: false,
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Component, Reflect, Serialize, Deserialize)]
+#[reflect(Component, Serialize, Deserialize)]
+pub(crate) struct Sprinting {
+    /// Speed of the sprint in m/s
+    pub(crate) speed: f32,
+    /// Was sprint requested?
+    pub(crate) requested: bool,
+}
+
+impl Default for Sprinting {
+    fn default() -> Self {
+        Self {
+            speed: 3.5,
+            requested: false,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Component, Reflect, Serialize, Deserialize)]
+#[reflect(Component, Serialize, Deserialize)]
+pub(crate) struct Stamina {
+    pub(crate) cooldown: Timer,
+    pub(crate) meter: Timer,
+    pub(crate) duration: u64,
+    pub(crate) capacity: u64,
+}
+
+impl Default for Stamina {
+    fn default() -> Self {
+        let capacity: u64 = 1;
+        let duration: u64 = capacity * 3;
+        let mut meter = Timer::new(Duration::from_secs(duration), TimerMode::Once);
+        meter.pause();
+        let mut cooldown = Timer::new(Duration::from_secs(duration * 2), TimerMode::Once);
+        cooldown.pause();
+        Self {
+            capacity,
+            duration,
+            meter,
+            cooldown,
         }
     }
 }

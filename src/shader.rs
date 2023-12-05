@@ -32,26 +32,27 @@ pub(crate) struct Materials {
     pub(crate) glowy: Handle<GlowyMaterial>,
     /// (Texture asset ID, Repeats) -> RepeatedMaterial
     pub(crate) repeated: HashMap<(HandleId, Repeats), Handle<RepeatedMaterial>>,
-    pub(crate) skydome: Handle<SkydomeMaterial>,
+    // TODO: Implement new skydome
+    // pub(crate) skydome: Handle<SkydomeMaterial>,
 }
 
 fn setup_shader(
     mut commands: Commands,
     mut glow_materials: ResMut<Assets<GlowyMaterial>>,
-    mut skydome_materials: ResMut<Assets<SkydomeMaterial>>,
+    // mut skydome_materials: ResMut<Assets<SkydomeMaterial>>,
     texture_assets: Res<TextureAssets>,
 ) {
     let glowy = glow_materials.add(GlowyMaterial {
         env_texture: texture_assets.glowy_interior.clone(),
     });
-    let skydome = skydome_materials.add(SkydomeMaterial {
-        env_texture: texture_assets.sky.clone(),
-    });
+    // let skydome = skydome_materials.add(SkydomeMaterial {
+    //     env_texture: texture_assets.sky.clone(),
+    // });
 
     commands.insert_resource(Materials {
         repeated: HashMap::new(),
         glowy,
-        skydome,
+        // skydome,
     });
 }
 
