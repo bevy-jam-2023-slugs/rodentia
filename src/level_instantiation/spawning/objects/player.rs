@@ -10,7 +10,7 @@ use bevy::prelude::*;
 use bevy_rapier3d::prelude::*;
 use std::f32::consts::TAU;
 
-pub(crate) const HEIGHT: f32 = 0.4;
+pub(crate) const HEIGHT: f32 = 2.0;
 pub(crate) const RADIUS: f32 = 0.3;
 
 pub(crate) fn spawn(

@@ -42,10 +42,8 @@ fn play_sprinting_effect(
                 if effect.spawner.is_some() {
                     effect.spawner.unwrap().set_starts_active(true);
                 }
-            } else {
-                if effect.spawner.is_some() {
-                    effect.spawner.unwrap().set_starts_active(false);
-                }
+            } else if effect.spawner.is_some() {
+                effect.spawner.unwrap().set_starts_active(false);
             }
         }
     }
