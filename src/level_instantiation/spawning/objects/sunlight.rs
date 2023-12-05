@@ -8,6 +8,7 @@ pub(crate) fn spawn(In(transform): In<Transform>, mut commands: Commands) {
     commands.spawn((
         DirectionalLightBundle {
             directional_light: DirectionalLight {
+                illuminance: 0.0,
                 shadows_enabled: true,
                 ..default()
             },
