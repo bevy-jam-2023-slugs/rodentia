@@ -88,8 +88,8 @@ pub(crate) struct DialogAssets {
 pub(crate) struct TextureAssets {
     #[asset(path = "textures/stone_alley_2.jpg")]
     pub(crate) glowy_interior: Handle<Image>,
-    #[asset(path = "textures/sky.jpg")]
-    pub(crate) sky: Handle<Image>,
+    // #[asset(path = "textures/sky.jpg")]
+    // pub(crate) sky: Handle<Image>,
 }
 
 #[derive(AssetCollection, Resource, Clone)]

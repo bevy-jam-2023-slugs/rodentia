@@ -92,12 +92,10 @@ impl Walking {
             } else {
                 self.ground_acceleration
             }
+        } else if self.sprinting {
+            self.aerial_acceleration * 1.5
         } else {
-            if self.sprinting {
-                self.aerial_acceleration * 1.5
-            } else {
-                self.aerial_acceleration
-            }
+            self.aerial_acceleration
         };
         self.direction.map(|dir| dir * acceleration)
     }
@@ -120,7 +118,6 @@ impl Default for Walking {
 #[derive(Debug, Clone, PartialEq, Component, Reflect, Default, Serialize, Deserialize)]
 #[reflect(Component, Serialize, Deserialize)]
 pub(crate) struct Grounded(pub(crate) bool);
-
 
 #[derive(Debug, Clone, PartialEq, Component, Reflect, Default, Serialize, Deserialize)]
 #[reflect(Component, Serialize, Deserialize)]

@@ -23,7 +23,7 @@ pub(crate) fn map_plugin(app: &mut App) {
 }
 
 fn setup(
-    mut commands: Commands,
+    // mut commands: Commands,
     mut loader: EventWriter<WorldLoadRequest>,
     mut delayed_spawner: EventWriter<SpawnEvent<GameObject, Transform>>,
 ) {

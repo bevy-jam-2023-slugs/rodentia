@@ -137,7 +137,6 @@ pub(crate) fn apply_jumping(
     }
 }
 
-
 fn rotate_characters(
     time: Res<Time>,
     mut player_query: Query<(&Velocity, &mut Transform)>,
