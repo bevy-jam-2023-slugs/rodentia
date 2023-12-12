@@ -2,6 +2,7 @@ use crate::file_system_interaction::level_serialization::{CurrentLevel, WorldLoa
 use crate::level_instantiation::spawning::GameObject;
 use crate::player_control::player_embodiment::Player;
 use crate::GameState;
+
 use bevy::prelude::*;
 use bevy_egui::{egui, EguiContexts};
 use spew::prelude::*;
@@ -37,6 +38,10 @@ fn setup(
     });
 
     // Make sure the player is spawned after the level
+    delayed_spawner.send(
+        SpawnEvent::with_data(GameObject::Noodle, Transform::from_xyz(20., 100.0, 000.))
+            .delay_frames(2),
+    );
     delayed_spawner.send(
         SpawnEvent::with_data(GameObject::Player, Transform::from_xyz(0., 1.5, 0.)).delay_frames(2),
     );
