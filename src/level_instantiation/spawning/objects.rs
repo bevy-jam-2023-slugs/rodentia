@@ -3,6 +3,7 @@ use bitflags::bitflags;
 
 pub(crate) mod camera;
 pub(crate) mod level;
+pub(crate) mod noodle;
 pub(crate) mod npc;
 pub(crate) mod orb;
 pub(crate) mod player;

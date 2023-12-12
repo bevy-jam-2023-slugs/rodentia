@@ -104,8 +104,8 @@ impl Walking {
 impl Default for Walking {
     fn default() -> Self {
         Self {
-            ground_acceleration: 14.,
-            sprinting_acceleration: 19.,
+            ground_acceleration: 10.,
+            sprinting_acceleration: 14.,
             aerial_acceleration: 9.,
             braking_acceleration: 5.,
             stopping_speed: 0.1,

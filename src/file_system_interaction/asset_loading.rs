@@ -46,6 +46,10 @@ pub(crate) struct SceneAssets {
     pub(crate) character: Handle<Scene>,
     #[asset(path = "scenes/old_town.glb#Scene0")]
     pub(crate) level: Handle<Scene>,
+    #[asset(path = "scenes/neon_sign_noodles_good.glb#Scene0")]
+    pub(crate) noodle: Handle<Scene>,
+    #[asset(path = "scenes/red_light_sword.glb#Scene0")]
+    pub(crate) sword: Handle<Scene>,
 }
 
 #[derive(AssetCollection, Resource, Clone)]

@@ -2,7 +2,7 @@
 
 ## Assets
 
-- Bevy icon: Apache 2.0; Copyright (c) 2020 Carter Anderson https://bevyengine.org/
+- Bevy icon: Apache 2.0; Copyright (c) 2020 noodleter Anderson https://bevyengine.org/
 - Fox walking sound: CC0 1.0; https://freesound.org/people/IENBA/sounds/658429/
 - Fox model: CC0 1.0; https://opengameart.org/content/fox-and-shiba
 - Fox rig and animations: CC BY 4.0, made by Tom Kranis; https://sketchfab.com/3d-models/low-poly-fox-by-pixelmannen-animated-371dea88d7e04a76af5763f2a36866bc
@@ -12,6 +12,8 @@
 - Medieval Wall 01: CC0 1.0; https://polyhaven.com/a/medieval_wall_01
 - Roof 09: CC0 1.0; https://polyhaven.com/a/roof_09
 - House model: CC0 1.0; made by Jan Hohenheim https://github.com/janhohenheim/foxtrot
+- Neon Sign Noodles: "neon sign "NOODLES GOOD"" (https://skfb.ly/oEJPs) by alina_dreiman is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- Red Light Sword: "Red light sword" (https://skfb.ly/oK7xA) by TomiokaSan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 ## Template
 
